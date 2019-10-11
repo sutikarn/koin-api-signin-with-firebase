@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/backgroundmenu"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent" android:background="@color/white"
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <ScrollView
+           android:id="@+id/bgbg"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+       
+       
+   </ScrollView>
+    
+    <TextView
+            android:text="TextView"
+            android:gravity="center"
+            android:textColor="@color/green"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/tvpageid"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="10dp"/>
+    <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/progressload"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:indicatorName="LineSpinFadeLoaderIndicator"
+            app:indicatorColor="@color/green"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+    />
+    
+    <com.shrikanthravi.collapsiblecalendarview.widget.CollapsibleCalendar
+            android:id="@+id/collapsibleCalendar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:primaryColor="@color/roseEnd"
+            app:textColor="@android:color/white"
+            app:selectedItem_textColor="@color/roseStart"
+            app:todayItem_textColor="@android:color/white"
+            app:todayItem_background="@drawable/circle_white_stroke_background"
+            app:selectedItem_background="@drawable/circle_white_solid_background"
+            app:buttonLeft_drawableTintColor="@android:color/white"
+            app:buttonRight_drawableTintColor="@android:color/white"
+            app:expandIconColor="@android:color/white"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvpageid"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp">
+    </com.shrikanthravi.collapsiblecalendarview.widget.CollapsibleCalendar>
+    
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:textColor="@color/roseEnd"
+            tools:text="111111111"
+            app:layout_constraintTop_toBottomOf="@+id/collapsibleCalendar"
+            app:layout_constraintStart_toStartOf="@+id/bgbg"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/bgbg"
+            android:layout_marginStart="8dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
