@@ -61,7 +61,7 @@ class LuckyViewModel(private val luckyApi: LuckyApi):ViewModel(), KoinComponent 
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({data ->
-                listItemRo.value =data
+                listItemRo.value = data
             },{  error ->
                 errorMessage.value = error.localizedMessage
             })
