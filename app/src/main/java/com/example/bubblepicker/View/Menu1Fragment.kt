@@ -61,6 +61,7 @@ class Menu1Fragment :Fragment() {
             }
 
             override fun onDaySelect() {
+
                 var day = collapsibleCalendar.selectedDay.day.toString()+" "
                 var month = collapsibleCalendar.selectedDay.month.toString()+" "
                 var year = collapsibleCalendar.selectedDay.year.toString()

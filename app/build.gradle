@@ -79,4 +79,9 @@ dependencies {
     //date
     implementation 'com.github.shrikanth7698:Collapsible-Calendar-View-Android:v1.0.0'
 
+    //picasso
+    implementation 'com.squareup.picasso:picasso:2.5.1'
+
+    implementation 'jp.wasabeef:picasso-transformations:2.2.1'
+
 }
