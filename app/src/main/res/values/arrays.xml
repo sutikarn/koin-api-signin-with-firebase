@@ -40,6 +40,15 @@
         <item>@drawable/paraguay</item>
         <item>@drawable/brazil</item>
     </integer-array>
+    
+    <array name="icons">
+        <item>@drawable/menu1</item>
+        <item>@drawable/menu2</item>
+        <item>@drawable/menu3</item>
+        <item>@drawable/menu4</item>
+        
+        
+    </array>
 
     <integer-array name="colors">
         <item>@color/roseStart</item>

@@ -22,6 +22,7 @@ class Menu1Fragment :Fragment() {
 
 
     private val luckyViewModel: LuckyViewModel by viewModel()
+    private var statusdate :Boolean?=false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -29,22 +30,35 @@ class Menu1Fragment :Fragment() {
         bgbg.setOnTouchListener(object :OnSwipeTouchListener(context){
 
             override fun onSwipeRight() {
+                if (statusdate!!){
+                    collapsibleCalendar.prevMonth()
+                }
+                else {
+                    collapsibleCalendar.prevWeek()
+                }
 
-                collapsibleCalendar.prevMonth()
             }
 
             override fun onSwipeLeft() {
+                if (statusdate!!){
+                    collapsibleCalendar.nextMonth()
+                }
+                else {
+                    collapsibleCalendar.nextWeek()
+                }
 
-                collapsibleCalendar.nextMonth()
+
             }
 
             override fun onSwipeBottom() {
                 super.onSwipeBottom()
+                statusdate = true
                 collapsibleCalendar.expand(400)
             }
 
             override fun onSwipeTop() {
                 super.onSwipeTop()
+                statusdate = false
                 collapsibleCalendar.collapse(400)
             }
 

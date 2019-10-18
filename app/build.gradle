@@ -84,4 +84,7 @@ dependencies {
 
     implementation 'jp.wasabeef:picasso-transformations:2.2.1'
 
+    implementation 'com.github.Hitomis:CircleMenu:v1.1.0'
+    implementation 'com.github.Aspsine:IRecyclerView:0.0.7'
+
 }
