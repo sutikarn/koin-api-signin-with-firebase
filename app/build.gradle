@@ -86,5 +86,7 @@ dependencies {
 
     implementation 'com.github.Hitomis:CircleMenu:v1.1.0'
     implementation 'com.github.Aspsine:IRecyclerView:0.0.7'
+    implementation 'com.akexorcist:google-direction-library:1.2.0'
+    implementation 'com.jcodecraeer:xrecyclerview:1.5.9'
 
 }
