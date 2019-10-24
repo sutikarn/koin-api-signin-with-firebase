@@ -7,6 +7,8 @@ import android.view.View.GONE
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CircleCrop
+import com.bumptech.glide.request.RequestOptions
 import com.example.bubblepicker.Model.ListItemResponse
 import com.example.bubblepicker.R
 import com.example.bubblepicker.Room.AppDatabase
@@ -39,6 +41,7 @@ class ListItemByPageAdapter(var context: Context?, val callback: ((Any, String) 
                 Glide.with(context!!)
                     .load(R.drawable.menu1)
                     .centerCrop()
+                    .apply(RequestOptions.circleCropTransform())
                     .into(itemView.favname)
             }
             itemView.tvname.text =listitem.name

@@ -1,40 +1,53 @@
 package com.example.bubblepicker.View
 
 import android.os.Bundle
-import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.GONE
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.bubblepicker.R
-import com.viksaa.sssplash.lib.activity.AwesomeSplash
-import kotlinx.android.synthetic.main.fragmentmenu.*
+import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.fragmentmenu3.*
 
 class Menu3Fragment: Fragment() {
 
+    private lateinit var auth: FirebaseAuth
+
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        backgroundmenu.setBackgroundColor(ContextCompat.getColor(context!!,R.color.menu3))
-        tvpageid.text = "3"
+        auth = FirebaseAuth.getInstance()
+
+        regis.setOnClickListener {
+            auth.createUserWithEmailAndPassword(username.text.toString(), pass.text.toString()).addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(context, "Successfully Registered", Toast.LENGTH_LONG).show()
+
+                } else {
+                    Toast.makeText(context, "Registration Failed", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+        signin.setOnClickListener {
+            auth.signInWithEmailAndPassword(username.text.toString(), pass.text.toString()).addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(context, "Successfully Login", Toast.LENGTH_LONG).show()
+
+                } else {
+                    Toast.makeText(context, "Registration Failed", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragmentmenu3, container, false)
     }
 
-    override fun onStart() {
-        super.onStart()
-        progressload.show()
-        collapsibleCalendar.visibility = GONE
-        bgbg.visibility = GONE
-    }
-
-    override fun onStop() {
-        super.onStop()
-        progressload.hide()
-    }
 
     companion object{
         @JvmStatic

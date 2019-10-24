@@ -1,21 +1,27 @@
 package com.example.bubblepicker
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.bubblepicker.View.Menu1Fragment
 import com.example.bubblepicker.View.Menu2Fragment
 import com.example.bubblepicker.View.Menu3Fragment
 import com.example.bubblepicker.View.Menu4Fragment
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.FirebaseAuth
 import com.luseen.luseenbottomnavigation.BottomNavigation.BottomNavigationItem
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
 
         var  bottomNavigationItem1 = BottomNavigationItem("Like",ContextCompat.getColor(this,R.color.green),R.drawable.menu1)
         var  bottomNavigationItem2 = BottomNavigationItem("Love",ContextCompat.getColor(this,R.color.green),R.drawable.menu2)
@@ -48,5 +54,7 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+
 
 }
