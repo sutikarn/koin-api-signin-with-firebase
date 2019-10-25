@@ -54,4 +54,15 @@
             app:layout_constraintTop_toBottomOf="@+id/pass"
             android:layout_marginStart="81dp"
             app:layout_constraintStart_toEndOf="@+id/regis"/>
+    
+    <Button
+            android:id="@+id/button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="auten"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+    
 </androidx.constraintlayout.widget.ConstraintLayout>

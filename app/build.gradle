@@ -36,6 +36,7 @@ android {
         exclude 'META-INF/notice.txt'
         exclude 'META-INF/ASL2.0'
         exclude 'META-INF/rxjava.properties'
+        exclude 'META-INF/rxkotlin.properties'
 
     }
     compileOptions {
@@ -96,5 +97,6 @@ dependencies {
     implementation 'com.jcodecraeer:xrecyclerview:1.5.9'
     implementation 'androidx.core:core-ktx:1.1.0'
     implementation 'androidx.fragment:fragment-ktx:1.1.0'
+    implementation 'com.github.HenriqueMachine:EasyFingerPrint:1.0.1'
 
 }
