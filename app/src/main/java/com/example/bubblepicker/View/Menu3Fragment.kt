@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.bubblepicker.MainActivity
 import com.example.bubblepicker.R
-import com.github.pwittchen.rxbiometric.library.validation.Preconditions
 import com.google.firebase.auth.FirebaseAuth
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.fragmentmenu3.*
@@ -57,9 +56,9 @@ class Menu3Fragment: Fragment() {
                     }
             }
         }
-        Preconditions.hasBiometricSupport(context!!)
+
         button.setOnClickListener {
-            mainActivity!!.biometic()
+            mainActivity.biometic()
 
         }
 

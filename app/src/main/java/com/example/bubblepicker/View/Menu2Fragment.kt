@@ -1,5 +1,6 @@
 package com.example.bubblepicker.View
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
@@ -26,6 +27,7 @@ import com.hitomi.cmlibrary.OnMenuSelectedListener
 
 class Menu2Fragment :Fragment() {
 
+    @SuppressLint("PrivateResource")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
