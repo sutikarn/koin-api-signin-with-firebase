@@ -1,3 +1,3 @@
 # BubblePicker2
 
-koin + mockjson +bubblepicker
+koin + mockjson +bubblepicker+room
