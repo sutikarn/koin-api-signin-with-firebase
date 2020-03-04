@@ -4,6 +4,7 @@ import android.content.Context
 import com.example.bubblepicker.Api.LuckyApi
 import com.example.bubblepicker.Api.OkHttpMockInterceptor
 import com.example.bubblepicker.Room.AppDatabase
+import com.example.bubblepicker.pref.PrefUtils
 import okhttp3.OkHttpClient
 import org.koin.dsl.module.module
 import retrofit2.Retrofit
@@ -16,6 +17,8 @@ var mainModule = module {
     single { createWebService(get()) }
 
     single { okHttpClient(get()) }
+
+    single{ PrefUtils.instance }
 
 }
 

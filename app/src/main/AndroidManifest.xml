@@ -4,6 +4,15 @@
           package="com.example.bubblepicker">
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    
+    <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDXODVEN_507yD-b5yFEKfHz4d4blwMoXs"/>
 
     <application
             android:allowBackup="true"
@@ -11,17 +20,27 @@
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
+            
             android:name=".MainApplication"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             tools:ignore="GoogleAppIndexingWarning">
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
         <activity android:name=".MainActivity"
-                  android:screenOrientation="portrait">
+                  android:screenOrientation="fullSensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <receiver android:name=".Until.SmsRecieving" android:exported="true" >
+            <intent-filter android:priority="999" >
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+        <activity android:name=".View.CameraActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/Theme.AppCompat.NoActionBar" />
     </application>
 
 </manifest>

@@ -99,4 +99,17 @@ dependencies {
     implementation 'androidx.fragment:fragment-ktx:1.1.0'
     implementation 'com.github.HenriqueMachine:EasyFingerPrint:1.0.1'
 
+    //Permission
+    implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation "androidx.security:security-crypto:1.0.0-alpha02"
+    implementation 'com.mohamadamin.kpreferences:kpreferences:0.1'
+    implementation 'com.github.bachors:Android-WordToSpan:3.1'
+
+    //qrcode
+    implementation 'com.budiyev.android:code-scanner:2.1.0'
+
+    //search
+    implementation 'com.github.iammert:MultiSearchView:0.1'
+
 }

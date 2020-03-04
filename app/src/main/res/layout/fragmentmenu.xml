@@ -56,16 +56,5 @@
             android:layout_marginEnd="8dp">
     </com.shrikanthravi.collapsiblecalendarview.widget.CollapsibleCalendar>
     
-    <TextView
-            android:text="TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView"
-            android:textColor="@color/roseEnd"
-            tools:text="111111111"
-            app:layout_constraintTop_toBottomOf="@+id/collapsibleCalendar"
-            app:layout_constraintStart_toStartOf="@+id/bgbg"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="@+id/bgbg"
-            android:layout_marginStart="8dp"/>
+    
 </androidx.constraintlayout.widget.ConstraintLayout>

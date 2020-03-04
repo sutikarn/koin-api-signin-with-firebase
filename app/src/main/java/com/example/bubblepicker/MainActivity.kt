@@ -1,25 +1,58 @@
 package com.example.bubblepicker
 
+import android.Manifest
+import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.hardware.fingerprint.FingerprintManagerCompat.CryptoObject
 import com.easyfingerprint.EasyFingerPrint
-import com.example.bubblepicker.View.Menu1Fragment
-import com.example.bubblepicker.View.Menu2Fragment
-import com.example.bubblepicker.View.Menu3Fragment
-import com.example.bubblepicker.View.Menu4Fragment
+import com.example.bubblepicker.View.*
+import com.example.bubblepicker.pref.PrefUtils
 import com.luseen.luseenbottomnavigation.BottomNavigation.BottomNavigationItem
+import com.mohamadamin.kpreferences.base.KPreferenceManager.Companion.context
+import com.tbruyelle.rxpermissions2.RxPermissions
 import kotlinx.android.synthetic.main.activity_main.*
+import org.koin.android.ext.android.inject
 
 
 class MainActivity : AppCompatActivity() {
 
+    private var inst: MainActivity? = null
+    val pref: PrefUtils by inject()
+    private val rxPermission by lazy { RxPermissions(this) }
 
+    fun instance(): MainActivity? {
+        return inst
+    }
+
+    override fun onStart() {
+        super.onStart()
+        inst = this
+    }
+    fun addlist(smsMessageStr: String) {
+        smsMessageStr.substring(17,19)
+        pref.count = pref.count+1
+        println("mmmmmmmmmm ${pref.count} ")
+        println("mmmmmmmmmm ${smsMessageStr.substring(17,19)}")
+
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val permission = Manifest.permission.RECEIVE_SMS
+        val grant = ContextCompat.checkSelfPermission(this, permission)
+        if (grant != PackageManager.PERMISSION_GRANTED) {
+            val permission_list = arrayOfNulls<String>(1)
+            permission_list[0] = permission
+            ActivityCompat.requestPermissions(this, permission_list, 1)
+        }
 
 
 
@@ -77,8 +110,23 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this@MainActivity,"Error: $mensage / $code",Toast.LENGTH_SHORT).show()
                 }
 
+                @SuppressLint("CheckResult")
                 override fun onSucess(cryptoObject: CryptoObject?) {
-                    Toast.makeText(this@MainActivity,"Sucess",Toast.LENGTH_SHORT).show()
+                    rxPermission.request(
+                        Manifest.permission.CAMERA)
+                        .subscribe {
+                        if (it){
+                        var intent = Intent(context, CameraActivity::class.java)
+                            startActivity(intent)
+
+                        }
+                        else {
+                            rxPermission.request(
+                                Manifest.permission.CAMERA
+                            )
+                        }
+                    }
+
                 }
 
             })

@@ -1,9 +1,7 @@
 package com.example.bubblepicker.View
 
 import android.os.Bundle
-import android.os.Handler
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
@@ -13,20 +11,33 @@ import androidx.lifecycle.Observer
 import com.example.bubblepicker.OnSwipeTouchListener
 import com.example.bubblepicker.R
 import com.example.bubblepicker.ViewModel.LuckyViewModel
-import com.shrikanthravi.collapsiblecalendarview.data.Day
+import com.example.bubblepicker.pref.PrefUtils
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
 import com.shrikanthravi.collapsiblecalendarview.widget.CollapsibleCalendar
 import kotlinx.android.synthetic.main.fragmentmenu.*
+import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class Menu1Fragment :Fragment() {
+
+class Menu1Fragment :Fragment(), OnMapReadyCallback {
 
 
     private val luckyViewModel: LuckyViewModel by viewModel()
     private var statusdate :Boolean?=false
+    val pref: PrefUtils by inject()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        pref.isLogin = true
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        backgroundmenu.setBackgroundColor(ContextCompat.getColor(context!!,R.color.menu1))
+        backgroundmenu.setBackgroundColor(ContextCompat.getColor(context!!, R.color.menu1))
+        pref.isLogin
+        pref.count
         bgbg.setOnTouchListener(object :OnSwipeTouchListener(context){
 
             override fun onSwipeRight() {
@@ -88,6 +99,7 @@ class Menu1Fragment :Fragment() {
             }
 
         })
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -118,5 +130,9 @@ class Menu1Fragment :Fragment() {
             fragment.arguments = bundle
             return fragment
         }
+    }
+
+    override fun onMapReady(p0: GoogleMap?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }
