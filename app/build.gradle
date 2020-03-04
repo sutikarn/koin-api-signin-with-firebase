@@ -111,5 +111,6 @@ dependencies {
 
     //search
     implementation 'com.github.iammert:MultiSearchView:0.1'
+    implementation "com.airbnb.android:lottie:3.4.0"
 
 }
