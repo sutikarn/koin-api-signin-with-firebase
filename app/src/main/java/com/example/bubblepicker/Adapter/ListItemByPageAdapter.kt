@@ -30,6 +30,7 @@ class ListItemByPageAdapter(var context: Context?, val callback: ((Any, String) 
 
     }
     fun addListItem(it: List<ListItemResponse>) {
+        listitem.clear()
         this.listitem.addAll(it)
     }
 
@@ -50,6 +51,11 @@ class ListItemByPageAdapter(var context: Context?, val callback: ((Any, String) 
             }
             itemView.favname.setOnClickListener {
                 callback!!.invoke(listitem,"fav")
+                Glide.with(context!!)
+                    .load(R.drawable.menu1)
+                    .centerCrop()
+                    .apply(RequestOptions.circleCropTransform())
+                    .into(itemView.favname)
             }
         }
     }

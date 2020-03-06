@@ -54,8 +54,8 @@ class ResultFragment(var page: String) :Fragment(){
 
     override fun onStart() {
         super.onStart()
-        progressload.show()
         luckyViewModel.getItemRo(page)
+        adapter.notifyDataSetChanged()
         luckyViewModel.listItemRo.observe(this, Observer(function = fun(it: List<ListItemResponse>) {
             it.let {
                 progressload.hide()
